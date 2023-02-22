@@ -24,11 +24,11 @@ export class FoodCalculator {
     this._foodSet = foodSet;
   }
 
-  _getFoodSet() {
+  getFoodSet() {
     return this._foodSet;
   }
 
-  _getSpecialDiscountFood() {
+  getSpecialDiscountFood() {
     return this._specialDiscountFood;
   }
 
@@ -49,7 +49,7 @@ export class FoodCalculator {
     return true;
   }
 
-  _getFoodValue(_set: string) {
+  getFoodValue(_set: string) {
     const targetFoodValue = this._foodSet._set[_set];
 
     if (!targetFoodValue) {
@@ -70,7 +70,7 @@ export class FoodCalculator {
   calculateTotal() {
     let total: number = 0;
     total = this._foodOrders.reduce((acc, food) => {
-      const foodValue = this._getFoodValue(food.set) || 0;
+      const foodValue = this.getFoodValue(food.set) || 0;
       if (food.quantity >= this._specialDiscountFood[food.set]) {
         this._discountBeforeMemberShip = 0.05;
       }

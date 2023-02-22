@@ -8,13 +8,13 @@ beforeEach(() => {
 });
 
 test("food set is initialized", () => {
-  expect(calculator._getFoodSet()).toBeInstanceOf(FoodSet);
+  expect(calculator.getFoodSet()).toBeInstanceOf(FoodSet);
 });
 
 test("discounts are set", () => {
-  expect(calculator._getSpecialDiscountFood()[FoodType.Orange]).toEqual(2);
-  expect(calculator._getSpecialDiscountFood()[FoodType.Pink]).toEqual(2);
-  expect(calculator._getSpecialDiscountFood()[FoodType.Green]).toEqual(2);
+  expect(calculator.getSpecialDiscountFood()[FoodType.Orange]).toEqual(2);
+  expect(calculator.getSpecialDiscountFood()[FoodType.Pink]).toEqual(2);
+  expect(calculator.getSpecialDiscountFood()[FoodType.Green]).toEqual(2);
 });
 
 test("calculate total", () => {
