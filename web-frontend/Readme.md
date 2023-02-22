@@ -11,5 +11,7 @@ Install project with npm/yarn/pnpm
 To get start
 
 ```bash
-  npm run start:dev
+  npm run start
 ```
+
+The website will be on you localhost:8080
