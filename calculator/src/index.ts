@@ -16,9 +16,9 @@ export class FoodSet {
 export class FoodCalculator {
   private _foodSet: FoodSet;
   private _foodOrders: IFoodOrder[] = [];
-  private _hasMemberCard: boolean = false;
   private _specialDiscountFood: IFoodSpecialDiscount = {};
   private _discountBeforeMemberShip: number = 0;
+  private _discountWithMemberShip: number = 0;
 
   constructor(foodSet: FoodSet) {
     this._foodSet = foodSet;
@@ -77,17 +77,19 @@ export class FoodCalculator {
       return (acc += foodValue * food.quantity);
     }, 0);
 
+    // Calculate discount before member card
     total = total - total * this._discountBeforeMemberShip;
 
-    if (this._hasMemberCard) {
-      total = total * 0.9;
-    }
+    // Calculate discount with member card
+    total = total - total * this._discountWithMemberShip;
 
     return total;
   }
 
-  checkMemberCard(_hasMemberCard: boolean) {
-    this._hasMemberCard = _hasMemberCard;
+  checkMemberCard(hasMemberCard: boolean) {
+    if(hasMemberCard) {
+      this._discountWithMemberShip = 0.1;
+    }
   }
 }
 
